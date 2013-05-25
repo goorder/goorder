@@ -1,3 +1,4 @@
+//TODO: make it generic textarea-in-place component
 angular.module('edit-address', ['ngSanitize'])
 .factory('extenralizeLinks', function(linkyFilter) {
   //TODO: unit test
