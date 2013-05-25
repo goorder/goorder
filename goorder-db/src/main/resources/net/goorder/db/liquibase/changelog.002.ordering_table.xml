@@ -15,7 +15,6 @@
       <column name="label" type="VARCHAR(64)"/>
       <column name="place" type="CLOB"/>
       <column name="comments" type="CLOB"/>
-      <column name="deadline" type="TIMESTAMP"/>
     </createTable>
 
   </changeSet>

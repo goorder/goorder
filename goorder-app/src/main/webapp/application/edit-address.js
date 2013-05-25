@@ -1,11 +1,11 @@
 angular.module('edit-address', ['ngSanitize'])
-.factory('createExternalLinks', function(linkyFilter) {
+.factory('extenralizeLinks', function(linkyFilter) {
   //TODO: unit test
   return function(text) {
     return linkyFilter(text).replace(/<a\s+href/g, '<a target=_blank href');
   }
 })
-.directive('goEditAddress', function(createExternalLinks) {
+.directive('goEditAddress', function(extenralizeLinks) {
   return {
     link: function(scope, elem) {
       var edit = elem.find('textarea');
@@ -34,19 +34,20 @@ angular.module('edit-address', ['ngSanitize'])
 
       scope.$watch('editing', function(editing) {
         if (editing) {
-          edit.show().focus(); render.hide();
+          edit.show().focus();
+          render.hide();
         } else {
           render.empty();
           var address = [];
           angular.forEach(scope.address.split('\n'), function(line, idx) {
-            var first = idx === 0;
             line = line.trim();
-            render.append((first ? '<strong>' : '') + createExternalLinks(line) + (first ? '</strong>' : ''));
+            render.append(extenralizeLinks(line));
             render.append('<br>');
             address.push(line);
           });
           scope.address = address.join('\n');
-          edit.hide(); render.show();
+          edit.hide();
+          render.show();
         }
       });
     }

@@ -19,7 +19,7 @@
       <div class="ng-cloak">
         <div class="row">
           <form class="form-inline">
-            Share with friends in hunger:
+            Share with hungry friends:
             <div class="input-append">
               <input class="span4" id="url" value="http://goorder.com/5f77tuxl" type="text">
               <button class="btn" type="button">copy</button>
@@ -37,9 +37,9 @@
         <div class="row">
           <div class="span6" id="edit-address">
             <address ng-controller="AddressEditController" go-edit-address>
+              <strong>Ordering place</strong>
               <div class="render"></div>
               <textarea rows="5" class="span6" ng-model="address">
-                Ordering place
                 http://
                 phone:
                 menu: http://
@@ -47,13 +47,8 @@
             </address>
           </div>
           <div class="span6">
-            <div>
-              Order at: <strong>12:30</strong>
-            </div>
-            <div class="progress progress-striped active">
-              <div class="bar" style="width: 75%;"><p>3min 45sec left</p></div>
-            </div>
-            <textarea class="span6" placeholder="extra info"></textarea>
+            <strong>Extra info</strong>
+            <textarea class="span6" placeholder="e.g. deadline "></textarea>
           </div>
         </div>
         <div class="well row">

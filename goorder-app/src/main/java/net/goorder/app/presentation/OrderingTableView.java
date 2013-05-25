@@ -17,8 +17,6 @@ public class OrderingTableView {
 
     private String place;
 
-    private LocalDateTime deadline;
-
     private String comments;
 
     private List<OrderLineView> items;
