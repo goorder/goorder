@@ -1,6 +1,6 @@
 angular.module('order-groups', [])
 .controller('OrderGroupsController', function($scope) {
-  
+
   $scope.groups = [{
       name: 'Tivoli'
     },{
