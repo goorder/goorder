@@ -10,7 +10,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import net.goorder.app.presentation.OrderingGroupRepo;
 import net.goorder.app.presentation.OrderingGroupView;
-import net.goorder.app.presentation.OrderingTableView;
 
 /**
  *
@@ -31,9 +30,4 @@ public class OrdersEndpoint {
         return orderingGroupRepo.orderingGroup(groupId);
     }
 
-    @Path("/group/{groupId}/table/{tableId}")
-    @GET
-    public OrderingTableView table(@PathParam("groupId") String groupId, @PathParam("tableId") Long tableId) {
-        return null;
-    }
 }

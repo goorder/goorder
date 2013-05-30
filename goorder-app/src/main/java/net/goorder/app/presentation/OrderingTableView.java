@@ -1,8 +1,8 @@
 package net.goorder.app.presentation;
 
+import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
-import org.joda.time.LocalDateTime;
 
 /**
  * This is a single order of a specific {@link OrderGroup}.
@@ -20,4 +20,11 @@ public class OrderingTableView {
     private String comments;
 
     private List<OrderLineView> items;
+
+    public void addLine(OrderLineView v) {
+        if (items == null) {
+            items = new ArrayList<>();
+        }
+        items.add(v);
+    }
 }
