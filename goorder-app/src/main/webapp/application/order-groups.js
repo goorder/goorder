@@ -1,13 +1,21 @@
 angular.module('order-groups', [])
-.controller('OrderGroupsController', function($scope) {
+.controller('OrderGroupsController', function($scope, $http) {
 
-  $scope.groups = [{
-      name: 'Tivoli'
+  $scope.tables = [{
+      label: 'Tivoli',
+      place: 'http://tivoli.demo'
     },{
-      name: 'Chinol'
-    }];
+      label: 'Chinol',
+      place: 'http://chinol.demo'
+  }];
 
-  $scope.isActive = function(group) {
-    return group.name === 'Tivoli';
-  }
+  $scope.table = {};
+
+  $scope.isActive = function(table) {
+    return $scope.table === table;
+  };
+
+  $scope.setActive = function(table) {
+    $scope.table = table;
+  };
 });

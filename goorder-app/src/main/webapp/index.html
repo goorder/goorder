@@ -6,7 +6,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/customizations.css" rel="stylesheet">
-    <link href="application/edit-address.css" rel="stylesheet">
+    <link href="application/textarea-in-place.css" rel="stylesheet">
   </head>
   <body ng-app="goorder">
     <div class="container" ng-controller="OrderGroupsController">
@@ -16,6 +16,8 @@
           <p>What do <strong>we</strong> order today?</p>
         </div>
       </div>
+
+      <!-- ordering group -->
       <div class="ng-cloak">
         <div class="row">
           <form class="form-inline">
@@ -26,31 +28,37 @@
             </div>
           </form>
         </div>
+
+        <!-- ordering group/tabs -->
         <div class="row">
           <ul class="nav nav-tabs">
-            <li ng-repeat="g in groups" ng-class="{active:isActive(g)}">
-              <a href="#">{{g.name}}</a>
+            <li ng-repeat="t in tables" ng-class="{active:isActive(t)}">
+              <a href="#" ng-click="setActive(t)">{{t.label}}</a>
             </li>
-            <li><a href="#">+</a></li>
+            <li>
+              <a href="#" ng-click="addTable()">+</a>
+            </li>
           </ul>
         </div>
+
+        <!-- ordering group/selected-tab -->
         <div class="row">
-          <div class="span6" id="edit-address">
-            <address ng-controller="AddressEditController" go-edit-address>
-              <strong>Ordering place</strong>
-              <div class="render"></div>
-              <textarea rows="5" class="span6" ng-model="address">
-                http://
-                phone:
-                menu: http://
-              </textarea>
-            </address>
+          <!-- ordering group/selected-tab/place -->
+          <div class="span6" go-textarea-in-place>
+            <strong>Ordering place</strong>
+            <div class="edit-prompt render"></div>
+            <textarea rows="5" class="span6" ng-model="table.place"></textarea>
           </div>
-          <div class="span6">
-            <strong>Extra info</strong>
-            <textarea class="span6" placeholder="who is ordering, when, etc..."></textarea>
+          <!-- ordering group/selected-tab/comments -->
+          <div class="span6" go-textarea-in-place>
+            <strong>Comments: who is ordering, when, etc...</strong>
+            <div class="edit-prompt render"></div>
+            <textarea class="span6"  ng-model="table.comments"></textarea>
           </div>
         </div>
+
+
+        <!-- ordering group/selected-tab/list -->
         <div class="well row">
           <div class="form-inline">
             <div class="input-prepend">
@@ -107,6 +115,8 @@
               <span class="add-on"><i class="" title="paid?"></i></span>
             </div>
           </div>
+
+          <!-- ordering group/selected-tab/list-new-order -->
           <div class="form-inline">
             <div class="input-prepend">
               <span class="add-on">#.</span>
@@ -117,6 +127,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
 
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -125,6 +137,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-sanitize.js"></script>
     <script src="application/main.js"></script>
     <script src="application/order-groups.js"></script>
-    <script src="application/edit-address.js"></script>
+    <script src="application/textarea-in-place.js"></script>
   </body>
 </html>

@@ -1,10 +1,11 @@
-#edit-address div.render {
+div.edit-prompt {
   cursor: pointer;
   margin: -3px;
-  border-width: 3px;
+  border-width: 2px;
   border-style: dashed;
   border-color: transparent;
+  min-height: 3em;
 }
-#edit-address div.render:hover {
+div.edit-prompt:hover {
   border-color: rgba(82, 168, 236, 0.8);
 }
